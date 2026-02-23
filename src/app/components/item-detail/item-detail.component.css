@@ -1,0 +1,180 @@
+/* Container Principal */
+.page-container {
+  min-height: 100vh;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  padding: 2rem;
+}
+
+/* Header Estilo Referência */
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.title-wrapper h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.btn-back-icon {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+
+.btn-back-icon:hover {
+  background: #1a1a1a;
+}
+
+/* Botão Editar (Igual à imagem) */
+.btn-edit-top {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Grid Layout */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Coluna da esquerda maior */
+  gap: 1.5rem;
+}
+
+/* Cards Estilizados */
+.info-section-card, .side-card {
+  background: #121212;
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.info-section-card h3, .side-card h3 {
+  font-size: 0.95rem;
+  color: #e5e7eb;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* Estilo de Labels e Valores */
+label {
+  display: block;
+  font-size: 0.8rem;
+  color: #9ca3af;
+  margin-bottom: 4px;
+}
+
+.description-group p {
+  font-size: 0.95rem;
+  color: #d1d5db;
+}
+
+/* Timestamps (Criado em / Atualizado em) */
+.timestamps {
+  display: flex;
+  gap: 3rem;
+  margin-top: 1.5rem;
+}
+
+.time-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.time-item svg {
+  color: #6b7280;
+  margin-top: 3px;
+}
+
+.time-item span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f3f4f6;
+}
+
+/* Lado Direito: Cards de Status */
+.stat-item {
+  margin-bottom: 1rem;
+}
+
+.stat-value-large {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.stat-value-medium {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Azul de destaque para o Valor Total */
+.highlight-blue {
+  color: #3b82f6 !important;
+}
+
+/* Divisores sutis */
+.divider {
+  border: 0;
+  border-top: 1px solid #1f1f1f;
+  margin: 1.5rem 0;
+}
+
+.divider-light {
+  border: 0;
+  border-top: 1px solid #1a1a1a;
+  margin: 1rem 0;
+}
+
+/* Badge Status */
+.badge-status {
+  background: #2563eb; /* Azul da sua imagem */
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Empty State (Histórico vazio) */
+.empty-state {
+  text-align: center;
+  padding: 3rem;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 1024px) {
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+}

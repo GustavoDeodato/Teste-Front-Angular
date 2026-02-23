@@ -1,280 +1,232 @@
-.dashboard-container {
+.container {
   min-height: 100vh;
-  background-color: #0a0a0a;
-  color: #ffffff;
+  height: 100%;
+  background: #0a0a0a;
   padding: 2rem;
-  font-family: 'Inter', 'Roboto', sans-serif;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
-/* Header */
 .header {
-  margin-bottom: 2rem;
-}
-
-.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-.title {
+.header-left h1 {
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 0 0.5rem 0;
-  color: #ffffff;
+  margin: 0 0 0.5rem;
 }
 
-.subtitle {
-  font-size: 0.95rem;
+.header-left p {
   color: #9ca3af;
   margin: 0;
+  font-size: 0.95rem;
 }
 
-.btn-primary {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background-color: #2563eb;
-  color: #ffffff;
+.btn-new {
+  background: #2563eb;
+  color: #fff;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
-  font-size: 0.95rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s;
 }
 
-.btn-primary:hover {
-  background-color: #1d4ed8;
+.btn-new:hover {
+  background: #1d4ed8;
 }
 
-.btn-primary .icon {
+.btn-new span {
   font-size: 1.25rem;
-  font-weight: 700;
 }
 
-/* Toolbar */
-.toolbar {
+.filters {
   display: flex;
   gap: 1rem;
   margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
-.search-box {
-  position: relative;
+.search {
   flex: 1;
-  min-width: 250px;
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
-.search-icon {
+.search svg {
   position: absolute;
   left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1rem;
-}
-
-.search-input {
-  width: 100%;
-  background-color: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  color: #ffffff;
-  padding: 0.75rem 1rem 0.75rem 2.75rem;
-  border-radius: 0.5rem;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.2s;
-}
-
-.search-input:focus {
-  border-color: #2563eb;
-}
-
-.search-input::placeholder {
   color: #6b7280;
 }
 
-.filter-select {
-  background-color: #1a1a1a;
+.search input {
+  width: 100%;
+  background: #1a1a1a;
   border: 1px solid #2a2a2a;
-  color: #ffffff;
-  padding: 0.75rem 1rem;
+  color: #fff;
+  padding: 0.75rem 1rem 0.75rem 2.75rem;
   border-radius: 0.5rem;
-  font-size: 0.95rem;
-  cursor: pointer;
   outline: none;
-  min-width: 180px;
-  transition: border-color 0.2s;
 }
 
-.filter-select:focus {
+.search input:focus {
   border-color: #2563eb;
 }
 
-.filter-select option {
-  background-color: #1a1a1a;
-  color: #ffffff;
+.search input::placeholder {
+  color: #6b7280;
 }
 
-/* Grid de Itens */
-.items-grid {
+.filters select {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 180px;
+}
+
+.filters select:focus {
+  border-color: #2563eb;
+}
+
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
 }
 
-.item-card {
-  background-color: #1a1a1a;
+.card {
+  background: #1a1a1a;
   border: 1px solid #2a2a2a;
   border-radius: 0.75rem;
   padding: 1.5rem;
   position: relative;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
 }
 
-.item-card:hover {
+.card:hover {
   transform: translateY(-2px);
   border-color: #3a3a3a;
 }
 
-.badge-status {
+.badge {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  background: #2563eb;
+  color: #fff;
   padding: 0.25rem 0.75rem;
   border-radius: 9999px;
   font-size: 0.75rem;
   font-weight: 600;
-  background-color: #374151;
-  color: #9ca3af;
 }
 
-.badge-status.active {
-  background-color: #2563eb;
-  color: #ffffff;
-}
-
-.item-image {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: #0a0a0a;
-  border-radius: 0.5rem;
-}
-
-.item-content {
-  margin-bottom: 1rem;
-}
-
-.item-title {
+.card h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  margin: 0 0 0.25rem 0;
-  color: #ffffff;
+  margin: 0 0 0.25rem;
 }
 
-.item-sku {
-  font-size: 0.85rem;
+.sku {
   color: #6b7280;
-  margin: 0 0 0.5rem 0;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 0.5rem;
 }
 
-.item-description {
-  font-size: 0.9rem;
+.desc {
   color: #9ca3af;
-  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  margin: 0 0 1rem;
   line-height: 1.5;
 }
 
-.item-metadata {
+.meta {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.metadata-item {
+.meta-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
   color: #9ca3af;
+  font-size: 0.85rem;
 }
 
-.metadata-item .icon {
-  font-size: 1rem;
+.meta-item svg {
+  color: #6b7280;
 }
 
-.item-footer {
+.footer {
   border-top: 1px solid #2a2a2a;
   padding-top: 1rem;
-  margin-top: 1rem;
-}
-
-.footer-info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.quantity {
+.qty {
   font-weight: 700;
-  color: #ffffff;
   font-size: 0.95rem;
 }
 
 .price {
-  font-weight: 600;
   color: #2563eb;
+  font-weight: 600;
   font-size: 1rem;
 }
 
-.empty-state {
+.empty {
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 4rem;
   color: #6b7280;
+}
+
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: #9ca3af;
   font-size: 1.1rem;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
-  .dashboard-container {
+  .container {
     padding: 1rem;
   }
-
-  .title {
-    font-size: 1.5rem;
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
-
-  .toolbar {
+  
+  .filters {
     flex-direction: column;
   }
-
-  .search-box {
-    min-width: 100%;
-  }
-
-  .filter-select {
+  
+  .filters select {
     width: 100%;
   }
-
-  .items-grid {
+  
+  .grid {
     grid-template-columns: 1fr;
-  }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
-  .items-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1025px) {
-  .items-grid {
-    grid-template-columns: repeat(3, 1fr);
   }
 }

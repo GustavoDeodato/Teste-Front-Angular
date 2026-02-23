@@ -1,0 +1,97 @@
+@if (item) {
+<div class="page-container">
+  
+  <header class="detail-header">
+    <div class="title-wrapper">
+      <button class="btn-back-icon" (click)="goBack()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+      <h1>{{item.nome}}</h1>
+      <span class="badge-status">{{item.status}}</span>
+    </div>
+    <button class="btn-edit-top" (click)="onEdit()">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
+      </svg>
+      Editar
+    </button>
+  </header>
+
+  <main class="detail-grid">
+    
+    <div class="left-column">
+      
+      <section class="info-section-card">
+        <h3>Informações do Item</h3>
+        
+        <div class="description-group">
+          <label>Descrição</label>
+          <p>{{item.descricao || 'Test description'}}</p>
+        </div>
+
+        <hr class="divider">
+
+        <div class="timestamps">
+          <div class="time-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div>
+              <label>Criado em</label>
+              <span>01/02/2026, 21:09:15</span>
+            </div>
+          </div>
+          <div class="time-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            <div>
+              <label>Atualizado em</label>
+              <span>01/02/2026, 21:09:15</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="info-section-card">
+        <h3>Movimentações Recentes</h3>
+        <p class="subtitle">Histórico de entradas e saídas</p>
+        
+        <div class="empty-state">
+          Nenhuma movimentação registrada
+        </div>
+      </section>
+    </div>
+
+    <div class="right-column">
+      
+      <section class="side-card">
+        <h3>Estoque</h3>
+        <div class="stat-item">
+          <label>Quantidade Atual</label>
+          <p class="stat-value-large">{{item.quantidade}} un</p>
+        </div>
+        <hr class="divider-light">
+        <div class="stat-item">
+          <label>Estoque Mínimo</label>
+          <p class="stat-value-medium">5 un</p>
+        </div>
+      </section>
+
+      <section class="side-card">
+        <h3>Valores</h3>
+        <div class="stat-item">
+          <label>Preço Unitário</label>
+          <p class="stat-value-large">R$ {{item.preco.toFixed(2)}}</p>
+        </div>
+        <hr class="divider-light">
+        <div class="stat-item">
+          <label>Valor Total em Estoque</label>
+              <p class="stat-value-large highlight-blue">
+                R$ {{(item.quantidade * item.preco).toFixed(2)}}
+              </p>        
+            </div>
+      </section>
+    </div>
+
+  </main>
+</div>
+}
