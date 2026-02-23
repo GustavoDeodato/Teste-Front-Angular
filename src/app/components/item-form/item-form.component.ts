@@ -25,7 +25,9 @@ export class ItemFormComponent implements OnInit {
     quantidade: 0,
     preco: 0,
     status: 'Ativo',
-    categoriaId: 0
+    categoriaId: 0,
+    localizacao: '',
+    estoqueMinimo: 0
   };
 
   errors = {
@@ -59,7 +61,9 @@ export class ItemFormComponent implements OnInit {
             quantidade: data.quantidade,
             preco: data.preco,
             status: data.status,
-            categoriaId: data.categoria.id || 0
+            categoriaId: data.categoria.id || 0,
+            localizacao: data.localizacao || '',
+            estoqueMinimo: 0
           };
           this.loading = false;
         },
