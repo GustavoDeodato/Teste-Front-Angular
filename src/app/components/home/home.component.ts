@@ -61,9 +61,10 @@ export class HomeComponent implements OnInit {
         item.sku?.toLowerCase().includes(this.searchTerm.toLowerCase());
       
       const matchesCategory = this.selectedCategory === 'all' || item.categoria.nome === this.selectedCategory;
+      const matchesLocation = this.selectedLocation === 'all' || item.localizacao === this.selectedLocation;
       const matchesStatus = this.selectedStatus === 'all' || item.status === this.selectedStatus;
 
-      return matchesSearch && matchesCategory && matchesStatus;
+      return matchesSearch && matchesCategory && matchesLocation && matchesStatus;
     });
   }
 
@@ -72,7 +73,10 @@ export class HomeComponent implements OnInit {
   }
 
   get locations() {
-    return ['all'];
+    const locs = this.items
+      .map(item => item.localizacao)
+      .filter((loc): loc is string => !!loc);
+    return ['all', ...new Set(locs)];
   }
 
   addNewItem() {
@@ -81,5 +85,12 @@ export class HomeComponent implements OnInit {
 
   openItem(item: Item) {
     this.router.navigate(['/item', item.id]);
+  }
+
+  clearFilters() {
+    this.searchTerm = '';
+    this.selectedCategory = 'all';
+    this.selectedLocation = 'all';
+    this.selectedStatus = 'all';
   }
 }

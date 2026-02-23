@@ -1,232 +1,202 @@
+/* Container e Layout Geral */
 .container {
   min-height: 100vh;
-  height: 100%;
   background: #0a0a0a;
   padding: 2rem;
   color: #fff;
   font-family: 'Inter', sans-serif;
-  margin: 0;
-  width: 100vw;
-  overflow-x: hidden;
 }
 
+/* Header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .header-left h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  margin: 0 0 0.5rem;
+  margin: 0;
 }
 
 .header-left p {
   color: #9ca3af;
-  margin: 0;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  margin-top: 4px;
 }
 
-.btn-new {
-  background: #2563eb;
-  color: #fff;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.2s;
-}
-
-.btn-new:hover {
-  background: #1d4ed8;
-}
-
-.btn-new span {
-  font-size: 1.25rem;
-}
-
+/* Filtros - Centralizados conforme a imagem */
 .filters {
   display: flex;
+  justify-content: space-between; /* Afasta a busca dos outros filtros */
+  align-items: center;
   gap: 1rem;
   margin-bottom: 2rem;
 }
 
-.search {
-  flex: 1;
-  position: relative;
+.filter-group {
   display: flex;
-  align-items: center;
+  gap: 1rem;
+  flex: 1;
+  justify-content: center; /* Centraliza os selects como na imagem */
+}
+
+.search {
+  width: 320px;
+  position: relative;
 }
 
 .search svg {
   position: absolute;
   left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   color: #6b7280;
 }
 
-.search input {
-  width: 100%;
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+.search input, .filters select {
+  background: #121212;
+  border: 1px solid #1f1f1f;
   color: #fff;
-  padding: 0.75rem 1rem 0.75rem 2.75rem;
-  border-radius: 0.5rem;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
   outline: none;
+  font-size: 0.85rem;
 }
 
-.search input:focus {
-  border-color: #2563eb;
-}
+.search input { padding-left: 2.8rem; width: 100%; }
 
-.search input::placeholder {
-  color: #6b7280;
-}
-
-.filters select {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  color: #fff;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  outline: none;
+.btn-clear {
+  background: #1f1f1f;
+  border: 1px solid #333;
+  color: #9ca3af;
+  border-radius: 8px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
   cursor: pointer;
-  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
 }
 
-.filters select:focus {
-  border-color: #2563eb;
+.btn-clear:hover {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #444;
 }
 
+/* Grid de Cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas no desktop conforme imagem */
+  gap: 1rem;
 }
 
+/* Card Estilizado */
 .card {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  position: relative;
-  transition: all 0.2s;
+  background: #121212;
+  border: 1px solid #1f1f1f;
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.2s;
   cursor: pointer;
 }
 
-.card:hover {
-  transform: translateY(-2px);
-  border-color: #3a3a3a;
+.card:hover { border-color: #333; }
+
+.card-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: -10px;
 }
 
 .badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   background: #2563eb;
   color: #fff;
-  padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
-.card h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin: 0 0 0.25rem;
+/* Conteúdo do Card */
+.card-content h3 {
+  font-size: 1.1rem;
+  margin: 0 0 8px;
 }
 
 .sku {
+  font-size: 0.75rem;
   color: #6b7280;
-  font-size: 0.85rem;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .desc {
   color: #9ca3af;
-  font-size: 0.9rem;
-  margin: 0 0 1rem;
-  line-height: 1.5;
-}
-
-.meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  font-size: 0.85rem;
   margin-bottom: 1rem;
 }
 
-.meta-item {
+/* Meta Infos (Setor/Localização) */
+.meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.25rem;
+}
+
+.meta-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
   color: #9ca3af;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
-.meta-item svg {
-  color: #6b7280;
-}
+.meta-row svg { color: #4b5563; }
 
-.footer {
-  border-top: 1px solid #2a2a2a;
+/* Rodapé do Card - Estilo Tabela */
+.card-footer {
+  border-top: 1px solid #1f1f1f;
   padding-top: 1rem;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.qty {
-  font-weight: 700;
-  font-size: 0.95rem;
+.footer-block {
+  display: flex;
+  flex-direction: column;
 }
 
-.price {
-  color: #2563eb;
-  font-weight: 600;
-  font-size: 1rem;
-}
-
-.empty {
-  text-align: center;
-  padding: 4rem;
+.footer-block .label {
+  font-size: 0.7rem;
   color: #6b7280;
+  margin-bottom: 4px;
 }
 
-.loading {
-  text-align: center;
-  padding: 4rem;
-  color: #9ca3af;
+.footer-block .value-qty {
+  font-weight: 700;
   font-size: 1.1rem;
 }
 
+.footer-block .value-price {
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+.align-right { text-align: right; }
+
+/* Responsividade */
+@media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 768px) {
-  .container {
-    padding: 1rem;
-  }
-  
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  
-  .filters {
-    flex-direction: column;
-  }
-  
-  .filters select {
-    width: 100%;
-  }
-  
-  .grid {
-    grid-template-columns: 1fr;
-  }
+  .grid { grid-template-columns: 1fr; }
+  .filters { flex-direction: column; align-items: stretch; }
+  .filter-group { flex-direction: column; }
+  .search { width: 100%; }
 }

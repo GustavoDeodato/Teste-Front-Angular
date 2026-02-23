@@ -17,6 +17,8 @@ export interface Item {
   status: string;
   categoria: Category;
   descricao?: string;
+  dataCriacao?: string | null;
+  localizacao?: string;
 }
 
 @Injectable({
